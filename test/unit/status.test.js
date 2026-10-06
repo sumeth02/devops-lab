@@ -9,8 +9,14 @@ describe('formatStatus', () => {
   it('throws on negative', () => {
     expect(() => formatStatus(-1)).toThrow('invalid uptime')
   })
+  it('warming-up at 0s', () => {
+    expect(formatStatus(0)).toBe('warming-up')
+  })
   it('warming-up under 60s', () => {
     expect(formatStatus(10)).toBe('warming-up')
+  })
+  it('healthy at exactly 60s', () => {
+    expect(formatStatus(60)).toBe('healthy')
   })
   it('healthy under 1h', () => {
     expect(formatStatus(3599)).toBe('healthy')
