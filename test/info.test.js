@@ -21,4 +21,9 @@ describe('GET /info', () => {
     expect(res.body.node).toMatch(/^v\d+\.\d+\.\d+/)
     expect(res.body.uptime).toBeGreaterThanOrEqual(0)
   })
+
+  it('returns exactly the expected keys', async () => {
+    const res = await request(app).get('/info')
+    expect(Object.keys(res.body).sort()).toEqual(['name', 'node', 'uptime', 'version'])
+  })
 })
