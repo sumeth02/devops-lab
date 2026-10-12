@@ -13,4 +13,10 @@ describe('GET /boom', () => {
     expect(res.body.error).toBe(true)
     expect(typeof res.body.message).toBe('string')
   })
+
+  it('returns the Boom! message in the JSON error', async () => {
+    const res = await request(app).get('/boom')
+    expect(res.headers['content-type']).toMatch(/json/)
+    expect(res.body.message).toContain('Boom')
+  })
 })
