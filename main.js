@@ -1,6 +1,3 @@
-// main.js — uses the functions
-import { doctors, addDoctor, filterByAge } from './hospitalData.js'
-
-addDoctor('Dr. Martin')
+import { doctors, addDoctor } from './hospitalData.js'
+addDoctor('Dr. Lee')
 console.log('Updated doctors:', doctors)
-console.log('Patients older than 30:', filterByAge(30))
